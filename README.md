@@ -2,11 +2,11 @@
 # Overview
 This is a web application developed during my final year at university.
 The app is split into an asynchronous database update/creation file ('Async Database Creation 4.py') while the application itself is ran using a flask framework ('app.py').
-# Async file
+# Async File
 The Async file uses pandas to read csv files of data (ems-nov-2018_for_upload.csv, synetica-nov-2018_for_upload.csv, wifi_2018-11_for_upload.csv), locates the relavant data columns and attributes, it also created a SQLite database for each datatype - in this case EMS (energy management system), synteica and wifi data. It then finds all instances of data variables in most cases using an ID or unique name and assigns these to an array, this array is then looped through with data located for each unique ID - data is stored as a dataframe consisting of the data and dates and timestamps. A table name is then assigned to this data and  is created in the SQLite database with associated data assigned to this table - during the loop each table name is printed to let the user see how far through the datasets the code is and ensures a user can see if th ecode gets stuck.
 
 At the end of each loop a test query is completed with the time axis from this table printed to ensure data assignment has been successful. A list of the unique table names created during the code is also output to a csv file.
-# Synchronous file app.py
+# Synchronous File app.py
 The application itself is based on the flask microframework, the code can be used in production mode or development mode by selecting to comment out the sys.stdout variable. The code has been designed in a way that a lot of the functionality is duplicated for each dataset imported allowing to easy addtions of additonal datasets.
 
 Initially the code will go to the template 'view 19 index.html', the only option here is to select data to be loaded. Upon submission of the form 'app.py' recieves the value of the button pressed so the code knows that the submit button was pressed and not other buttons which are available once data is trended. this is fed into an if statement to show the load button was pressed (this is the value assigned to the submit buttton).
